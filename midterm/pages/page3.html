@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - Ecommerce</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="page3.css" />
+</head>
+<body>
+  <div class="top-bar"></div>
+  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand d-flex align-items-center" href="/midterm/index.html">
+        <div class="logo me-2"></div>
+        <span class="brand">Ecommerce</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="page2.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="page4.html">Payment</a></li>
+          <li class="nav-item"><a class="nav-link" href="page5.html">About Us</a></li>
+        </ul>
+
+        <form class="d-flex me-3 align-items-center">
+          <i class="ri-search-line me-2"></i>
+          <input class="form-control" type="search" placeholder="Search">
+        </form>
+
+        <div class="d-flex align-items-center gap-3">
+          <i class="ri-shopping-cart-2-line fs-5"></i>
+          <a href="/midterm/login.html" class="btn btn-outline-dark btn-sm">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <div class="row g-4">
+      <section class="col-lg-6">
+        <a href="page2.html" class="text-decoration-none text-dark d-flex align-items-center mb-3">
+          <i class="ri-arrow-left-line me-2"></i>Back to Shop
+        </a>
+        <h4 class="mb-3">Shipping Information</h4>
+        <div class="shipping-box bg-light rounded" style="height:280px;"></div>
+      </section>
+
+      <!-- Cart Summary -->
+      <section class="col-lg-6">
+        <h4 class="mb-3">Your Cart</h4>
+
+        <div class="cart-items d-flex flex-column gap-3 mb-4">
+          <div class="d-flex align-items-center gap-3 border rounded p-2 shadow-sm">
+            <div class="cart-img rounded" style="width:80px;height:80px;background:#e6e6e6;"></div>
+            <div>
+              <p class="mb-1 fw-semibold">Product 1</p>
+              <small class="text-muted">Updated today</small>
+            </div>
+            <span class="ms-auto fw-semibold">$120</span>
+          </div>
+
+          <div class="d-flex align-items-center gap-3 border rounded p-2 shadow-sm">
+            <div class="cart-img rounded" style="width:80px;height:80px;background:#e6e6e6;"></div>
+            <div>
+              <p class="mb-1 fw-semibold">Product 2</p>
+              <small class="text-muted">Updated today</small>
+            </div>
+            <span class="ms-auto fw-semibold">$80</span>
+          </div>
+        </div>
+
+        <div class="border-top pt-3">
+          <div class="d-flex justify-content-between mb-2">
+            <span>Subtotal</span><span id="subtotal">$200</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span>Shipping</span><span class="text-muted">Calculated at next step</span>
+          </div>
+          <div class="d-flex justify-content-between border-top pt-2 fw-bold">
+            <span>Total</span><span id="total">$200</span>
+          </div>
+
+          <input type="text" id="promo" class="form-control mt-3" placeholder="Enter promotional code">
+          <button class="btn btn-dark mt-3 w-100 apply-btn">Apply Promo</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer bg-light pt-4 pb-2 mt-5">
+    <div class="container">
+      <div class="newsletter d-flex flex-wrap gap-2 mb-4">
+        <input type="email" class="form-control w-auto" placeholder="Email Address" />
+        <button class="btn btn-dark">Sign Up</button>
+      </div>
+
+      <div class="row footer-links text-start text-md-start">
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+          <h5>Shop</h5>
+          <p>Equipment</p><p>By Activity</p><p>Gift Cards</p><p>Sale</p>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+          <h5>Contact</h5>
+          <p>Help Center</p><p>Telegram</p><p>Instagram</p><p>WhatsApp</p>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+          <h5>About</h5>
+          <p>About Us</p><p>Responsibility</p><p>Technology & Innovation</p><p>Our Stories</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-3 small text-muted">
+        © 2025 Ecommerce. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // Animate cart items
+      $(".cart-items div").hide().each(function(i) {
+        $(this).delay(300 * i).fadeIn(500);
+      });
+
+      // Promo code logic
+      $(".apply-btn").click(function() {
+        const code = $("#promo").val().trim().toLowerCase();
+        let subtotal = 200;
+        if (code === "discount10") {
+          subtotal = subtotal * 0.9;
+          $("#subtotal, #total").text(`$${subtotal.toFixed(2)}`);
+          alert("Promo code applied: 10% discount!");
+        } else if (code.length > 0) {
+          alert("Invalid promo code!");
+        } else {
+          alert("Please enter a promo code.");
+        }
+      });
+
+      $(".btn-dark").click(function() {
+        const email = $("input[type='email']").val();
+        if (email.includes("@")) {
+          alert("Thank you for subscribing!");
+        } else {
+          alert("Please enter a valid email address.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
