@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.top-bar {
+  width: 100%;
+  height: 30px;
+  background-color: #8580eb;
+}
+.header {
+  padding: 0 40px;
+  height: 60px;
+}
+.header nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+.header nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.product-image {
+  background-color: #f3f3f3;
+  height: 200px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/1665/1665731.png');
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+}
+
+footer p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+footer p:hover {
+  text-decoration: underline;
+}
+
+button:hover {
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px;
+  }
+  footer {
+    text-align: center;
+  }
+}
+.login-btn {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.login-btn:hover {
+  color: #6f64e7;
+  transition: 0.3s;
+}
