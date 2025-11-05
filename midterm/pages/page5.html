@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us</title>
+  <link rel="stylesheet" href="page5.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="top-bar"></div>
+
+  <header>
+    <div class="logo">
+      <div class="logo-circle"></div>
+      <span><b>Ecommerce</b></span>
+      <nav>
+        <a href="page2.html">Shop</a>
+        <a href="page3.html">Cart</a>
+        <a href="#"><b>About Us</b></a>
+        <a href="page4.html">Payment</a>
+        <input type="text" placeholder="Search" class="search" />
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <button class="login-btn">Login</button>
+      <i class="fa-solid fa-user"></i>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="image-box">
+      <div class="arrow">></div>
+    </div>
+
+    <div class="about-text">
+      <h3>About the Company</h3>
+      <p>Our online store was created to make shopping simple and convenient. We offer a wide selection of high-quality products at affordable prices.</p>
+      <p>We work only with reliable suppliers, guaranteeing the authenticity and high quality of our products.</p>
+      <p>Our goal is to save you time: convenient search, quick ordering, and fast delivery nationwide.</p>
+      <p>We value every customer and are always ready to assist with selection and consultation.</p>
+      <div class="stars" id="starRating">
+        <i class="fa-solid fa-star" data-value="1"></i>
+        <i class="fa-solid fa-star" data-value="2"></i>
+        <i class="fa-solid fa-star" data-value="3"></i>
+        <i class="fa-solid fa-star" data-value="4"></i>
+        <i class="fa-solid fa-star" data-value="5"></i>
+      </div>
+      <p class="rating-text" id="ratingText">Your rating: 0/5</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <input type="email" placeholder="Email Address" />
+      <button>Sign Up</button>
+    </div>
+
+    <div class="footer-column">
+      <h4>Shop</h4>
+      <a href="#">Equipment</a>
+      <a href="#">By Activity</a>
+      <a href="#">Gift Cards</a>
+      <a href="#">Sale</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <a href="#">Help Center</a>
+      <a href="#">Telegram</a>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsUp</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>About</h4>
+      <a href="#">About Us</a>
+      <a href="#">Responsibility</a>
+      <a href="#">Technology & Innovation</a>
+      <a href="#">Explore our stories</a>
+    </div>
+  </footer>
+
+  <script>
+    const stars = document.querySelectorAll('#starRating i');
+    const ratingText = document.getElementById('ratingText');
+    let currentRating = 0;
+
+    stars.forEach(star => {
+      // Подсвечивание при наведении
+      star.addEventListener('mouseover', () => {
+        resetStars();
+        const value = parseInt(star.getAttribute('data-value'));
+        highlightStars(value);
+      });
+
+      // Убираем подсветку при уходе мыши
+      star.addEventListener('mouseout', () => {
+        resetStars();
+        highlightStars(currentRating);
+      });
+
+      // Клик — фиксируем рейтинг
+      star.addEventListener('click', () => {
+        currentRating = parseInt(star.getAttribute('data-value'));
+        ratingText.textContent = `Your rating: ${currentRating}/5`;
+      });
+    });
+
+    function highlightStars(value) {
+      for (let i = 0; i < value; i++) {
+        stars[i].classList.add('active');
+      }
+    }
+
+    function resetStars() {
+      stars.forEach(star => star.classList.remove('active'));
+    }
+  </script>
+</body>
+</html>
