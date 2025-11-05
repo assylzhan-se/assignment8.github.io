@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Ecommerce</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="top-bar"></div>
+  <header class="navbar">
+    <div class="left-nav">
+      <div class="logo-circle"></div>
+      <span class="brand">Ecommerce</span>
+      <nav>
+        <a href="/midterm/pages/page2.html">Shop</a>
+        <a href="/midterm/pages/page3.html">Cart</a>
+        <a href="/midterm/pages/page4.html">Payment</a>
+        <a href="/midterm/pages/page5.html">About Us</a>
+      </nav>
+    </div>
+
+    <div class="right-nav">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <button class="login-btn">Login</button>
+      <i class="fa-solid fa-user"></i>
+    </div>
+  </header>
+
+  <main class="login-container">
+    <div class="login-box" id="formContainer">
+
+      <form id="loginForm" class="active">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Login to your account</p>
+
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required />
+        </div>
+
+        <div class="extra">
+          <a href="#" id="showForgot">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-submit">Login</button>
+
+        <p class="register-text">
+          Don’t have an account?
+          <a href="#" id="showRegister">Register here</a>
+        </p>
+      </form>
+
+      <form id="registerForm" class="hidden">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join us today!</p>
+
+        <div class="input-group">
+          <label for="regName">Full Name</label>
+          <input type="text" id="regName" placeholder="Enter your name" required />
+        </div>
+
+        <div class="input-group">
+          <label for="regEmail">Email Address</label>
+          <input type="email" id="regEmail" placeholder="Enter your email" required />
+        </div>
+
+        <div class="input-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" placeholder="Create a password" required />
+        </div>
+
+        <button type="submit" class="login-submit">Register</button>
+
+        <p class="register-text">
+          Already have an account?
+          <a href="#" id="showLogin1">Login</a>
+        </p>
+      </form>
+
+      <form id="forgotForm" class="hidden">
+        <h2>Forgot Password?</h2>
+        <p class="subtitle">We’ll send a reset link to your email</p>
+
+        <div class="input-group">
+          <label for="forgotEmail">Email Address</label>
+          <input type="email" id="forgotEmail" placeholder="Enter your email" required />
+        </div>
+
+        <button type="submit" class="login-submit">Send Reset Link</button>
+
+        <p class="register-text">
+          Remembered your password?
+          <a href="#" id="showLogin2">Back to Login</a>
+        </p>
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="newsletter">
+      <input type="email" placeholder="Email Address">
+      <button>Sign Up</button>
+    </div>
+
+    <div class="footer-links">
+      <div class="col">
+        <h4>Shop</h4>
+        <p>Equipment</p>
+        <p>By Activity</p>
+        <p>Gift Cards</p>
+        <p>Sale</p>
+      </div>
+      <div class="col">
+        <h4>Contact</h4>
+        <p>Help Center</p>
+        <p>Telegram</p>
+        <p>Instagram</p>
+        <p>WhatsUp</p>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <p>About Us</p>
+        <p>Responsibility</p>
+        <p>Technology & Innovation</p>
+        <p>Explore our stories</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS for form switching -->
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const forgotForm = document.getElementById('forgotForm');
+
+    document.getElementById('showRegister').addEventListener('click', () => {
+      loginForm.classList.add('hidden');
+      registerForm.classList.remove('hidden');
+    });
+
+    document.getElementById('showForgot').addEventListener('click', () => {
+      loginForm.classList.add('hidden');
+      forgotForm.classList.remove('hidden');
+    });
+
+    document.getElementById('showLogin1').addEventListener('click', () => {
+      registerForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    });
+
+    document.getElementById('showLogin2').addEventListener('click', () => {
+      forgotForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
